@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN H4X</title>
+<link rel="stylesheet" href="css/83ca2c44_all.min.css">
+<link href="assets/3ee16446_css2" rel="stylesheet">
+<script src="js/cfb3bbfb_crypto-js.min.js"></script>
+<script src="js/854d96f1_fingerprint2.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  background: #08001a;
+  color: #d4bfff;
+  overflow-x: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 18px;
+  position: relative;
+  font-family: 'Rajdhani', sans-serif;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('img/10722608_54OLf6j.jpeg') center/cover no-repeat fixed;
+  opacity: 0.10;
+  z-index: 0;
+  filter: brightness(0.2) saturate(2) sepia(1) hue-rotate(260deg);
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8,0,26,0.88);
+  z-index: 0;
+}
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #9b4dff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle 8s infinite ease-in-out;
+  box-shadow: 0 0 10px #9b4dff, 0 0 20px #9b4dff66;
+}
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 25%; animation-delay: 1.2s; width: 4px; height: 4px; }
+.particle:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+.particle:nth-child(4) { left: 55%; animation-delay: 0.8s; width: 5px; height: 5px; background: #b87aff; box-shadow: 0 0 15px #b87aff, 0 0 30px #b87aff66; }
+.particle:nth-child(5) { left: 70%; animation-delay: 3.2s; }
+.particle:nth-child(6) { left: 85%; animation-delay: 1.8s; width: 4px; height: 4px; }
+.particle:nth-child(7) { left: 15%; animation-delay: 4.5s; background: #8a2be2; }
+.particle:nth-child(8) { left: 50%; animation-delay: 2.0s; width: 6px; height: 6px; }
+@keyframes floatParticle {
+  0% { opacity: 0; transform: translateY(100vh) scale(0); }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+}
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+.glow-orb.orb1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  background: rgba(155, 77, 255, 0.15);
+  animation: orbFloat 12s ease-in-out infinite;
+}
+.glow-orb.orb2 {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  left: -80px;
+  background: rgba(138, 43, 226, 0.12);
+  animation: orbFloat 14s ease-in-out infinite reverse;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.2); }
+}
+.wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+.badge {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #b87aff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-shadow: 0 0 30px rgba(155,77,255,0.5), 0 0 60px rgba(155,77,255,0.2);
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 30px rgba(155,77,255,0.5), 0 0 60px rgba(155,77,255,0.2); }
+  50% { text-shadow: 0 0 50px rgba(155,77,255,0.8), 0 0 100px rgba(155,77,255,0.4), 0 0 150px rgba(155,77,255,0.2); }
+}
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+  background: linear-gradient(90deg, #9b4dff, #b87aff, #d4bfff, #9b4dff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 60px rgba(155,77,255,0.3), 0 0 120px rgba(155,77,255,0.15);
+  animation: fireText 3s ease-in-out infinite;
+}
+@keyframes fireText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.sub {
+  text-align: center;
+  color: #b87aff;
+  margin: 6px 0 20px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  font-weight: 300;
+  text-shadow: 0 0 20px rgba(155,77,255,0.2);
+}
+.card {
+  background: rgba(8, 0, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(155, 77, 255, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(155, 77, 255, 0.08), 0 0 40px rgba(155,77,255,0.05);
+  padding: 24px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  color: #b87aff;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(155,77,255,0.2);
+}
+.row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 9px 4px; font-size: 14px; border-bottom: 1px solid rgba(155,77,255,0.08); }
+.row:last-child { border-bottom: none; }
+.lbl { color: #b87aff; min-width: 120px; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; font-weight: 500; }
+.val { font-weight: 600; word-break: break-all; }
+.ok { color: #9b4dff; text-shadow: 0 0 20px rgba(155,77,255,0.5); } .no { color: #555; }
+button, .btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #7b2fbe, #9b4dff, #b87aff);
+  box-shadow: 0 8px 24px rgba(155,77,255,0.30), 0 0 40px rgba(155,77,255,0.10);
+  transition: transform .15s, box-shadow .2s, filter .2s;
+  font-family: 'Orbitron', sans-serif;
+}
+button:hover, .btn:hover { transform: translateY(-2px); filter: brightness(1.15); box-shadow: 0 12px 30px rgba(155,77,255,0.50), 0 0 60px rgba(155,77,255,0.20); }
+button:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.hint { font-size: 11px; color: #8b6bbf; margin-top: 6px; line-height: 1.5; text-shadow: 0 0 10px rgba(155,77,255,0.1); }
+.msg { display: none; padding: 10px 12px; border-radius: 10px; font-size: 12px; margin-top: 10px; }
+.msg.okm { display: block; background: rgba(155,77,255,.10); border: 1px solid rgba(155,77,255,.25); color: #b87aff; text-shadow: 0 0 10px rgba(155,77,255,0.2); }
+.msg.err { display: block; background: rgba(155,77,255,.10); border: 1px solid rgba(155,77,255,.25); color: #ff6b6b; }
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(155,77,255,.25);
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 12px;
+  outline: none;
+  transition: all 0.3s;
+  font-family: 'Rajdhani', sans-serif;
+}
+input:focus {
+  border-color: rgba(155,77,255,.6);
+  box-shadow: 0 0 40px rgba(155,77,255,.10), 0 0 80px rgba(155,77,255,.05);
+}
+input::placeholder { color: #664488; }
+footer { margin-top: 20px; font-size: 10px; color: #5a3a6d; letter-spacing: 2px; }
+footer .credit { display: flex; justify-content: center; gap: 14px; margin-bottom: 6px; font-size: 12px; flex-wrap: wrap; }
+footer .credit a {
+  color: #b87aff;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
+footer .credit a:hover { color: #d4bfff; }
+footer .credit a i { font-size: 14px; }
+.footer-brand { color: #b87aff; font-weight: 700; letter-spacing: 1px; font-family: 'Orbitron', sans-serif; font-size: 10px; text-shadow: 0 0 20px rgba(155,77,255,0.2); }
+
+/* AUDIO CONTROLLER - GLOWING VIOLET */
+.audio-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(8,0,26,0.90);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(155,77,255,0.5);
+    border-radius: 50px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 40px rgba(155,77,255,0.20), inset 0 0 20px rgba(155,77,255,0.05);
+}
+.audio-control:hover {
+    transform: scale(1.05);
+    border-color: rgba(155,77,255,0.8);
+    box-shadow: 0 0 60px rgba(155,77,255,0.40), inset 0 0 30px rgba(155,77,255,0.08);
+}
+.audio-icon {
+    font-size: 20px;
+    color: #9b4dff;
+    transition: color 0.3s;
+}
+.audio-text {
+    color: #b87aff;
+    font-size: 10px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+.audio-bar-container {
+    width: 50px;
+    height: 4px;
+    background: rgba(155,77,255,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.audio-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #9b4dff, #7b2fbe, #b87aff);
+    border-radius: 4px;
+    animation: musicBarAnim 0.8s ease-in-out infinite;
+    transform-origin: left;
+}
+@keyframes musicBarAnim {
+    0% { transform: scaleX(0.2); }
+    50% { transform: scaleX(1); }
+    100% { transform: scaleX(0.2); }
+}
+.audio-control.playing .audio-icon {
+    color: #b87aff;
+    text-shadow: 0 0 20px rgba(155,77,255,0.5);
+}
+.audio-control.playing .audio-text {
+    color: #d4bfff;
+}
+.audio-control.playing .audio-bar {
+    background: linear-gradient(90deg, #9b4dff, #b87aff, #9b4dff);
+}
+</style>
+</head>
+<body>
+<div class="particles">
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div>
+</div>
+<div class="glow-orb orb1"></div><div class="glow-orb orb2"></div>
+
+<!-- AUDIO PLAYER -->
+<audio id="bgAudio" loop preload="auto">
+    <source src="/audio/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- AUDIO CONTROLLER -->
+<div class="audio-control" id="audioControl" onclick="toggleAudio()">
+    <i class="fas fa-music audio-icon" id="audioIcon"></i>
+    <span class="audio-text" id="audioLabel">PLAY</span>
+    <div class="audio-bar-container">
+        <div class="audio-bar" id="audioBar"></div>
+    </div>
+</div>
+
+<div class="wrap">
+  <div class="badge">💜 ZAIN H4X</div>
+  <h1>ZAIN H4X</h1>
+  <div class="sub">⚡ SECURE ACCESS &middot; KEY-BASED GATEWAY</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZAIN H4X · Control Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="assets/3ee16446_css2" rel="stylesheet">
+    <link rel="stylesheet" href="css/e2767042_all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #08001a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Rajdhani', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #9b4dff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 8s infinite ease-in-out;
+            box-shadow: 0 0 10px #9b4dff, 0 0 20px #9b4dff66;
+        }
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 25%; animation-delay: 1.2s; width: 4px; height: 4px; }
+        .particle:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+        .particle:nth-child(4) { left: 55%; animation-delay: 0.8s; width: 5px; height: 5px; background: #b87aff; box-shadow: 0 0 15px #b87aff, 0 0 30px #b87aff66; }
+        .particle:nth-child(5) { left: 70%; animation-delay: 3.2s; }
+        .particle:nth-child(6) { left: 85%; animation-delay: 1.8s; width: 4px; height: 4px; }
+        .particle:nth-child(7) { left: 15%; animation-delay: 4.5s; background: #8a2be2; }
+        .particle:nth-child(8) { left: 50%; animation-delay: 2.0s; width: 6px; height: 6px; }
+        @keyframes floatParticle {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .glow-orb.orb1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+            background: rgba(155, 77, 255, 0.15);
+            animation: orbFloat 12s ease-in-out infinite;
+        }
+        .glow-orb.orb2 {
+            width: 250px;
+            height: 250px;
+            bottom: -80px;
+            left: -80px;
+            background: rgba(138, 43, 226, 0.12);
+            animation: orbFloat 14s ease-in-out infinite reverse;
+        }
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -30px) scale(1.2); }
+        }
+
+        .dashboard {
+            max-width: 420px;
+            width: 100%;
+            padding: 24px 20px;
+            background: rgba(8, 0, 26, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(155, 77, 255, 0.15);
+            border-radius: 24px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(155, 77, 255, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(155, 77, 255, 0.08);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7b2fbe, #9b4dff, #b87aff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(155, 77, 255, 0.30), 0 0 40px rgba(155,77,255,0.10);
+            position: relative;
+        }
+        .brand-icon::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, transparent, rgba(155, 77, 255, 0.30));
+            z-index: -1;
+            animation: borderPulse 3s ease-in-out infinite;
+        }
+        @keyframes borderPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .brand-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #9b4dff, #7b2fbe, #b87aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-sub {
+            font-size: 8px;
+            color: #b87aff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(155, 77, 255, 0.08);
+            border: 1px solid rgba(155, 77, 255, 0.15);
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #9b4dff;
+            animation: pulseDot 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(155,77,255,0.5);
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(0.6); }
+        }
+        .status-text {
+            color: #b87aff;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .ip-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(155, 77, 255, 0.08);
+            margin-bottom: 16px;
+        }
+        .ip-bar i {
+            color: #b87aff;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+        .ip-bar .ip {
+            flex: 1;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', monospace;
+        }
+        .ip-badge {
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 7px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b87aff;
+            border: 1px solid rgba(155, 77, 255, 0.20);
+            background: rgba(155, 77, 255, 0.08);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(155,77,255,0.2);
+        }
+
+        .activate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(90deg, #7b2fbe, #9b4dff, #b87aff);
+            box-shadow: 0 6px 28px rgba(155, 77, 255, 0.35), 0 0 40px rgba(155,77,255,0.10);
+            transition: transform .2s, box-shadow .2s, filter .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .activate-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
+            box-shadow: 0 10px 36px rgba(155, 77, 255, 0.50), 0 0 60px rgba(155,77,255,0.20);
+        }
+        .activate-btn:active { transform: scale(0.98); }
+        .activate-btn.active {
+            background: linear-gradient(135deg, #9b4dff, #7b2fbe);
+            animation: activePulse 2s ease-in-out infinite;
+        }
+        @keyframes activePulse {
+            0%, 100% { box-shadow: 0 6px 28px rgba(155, 77, 255, 0.35), 0 0 40px rgba(155,77,255,0.10); }
+            50% { box-shadow: 0 6px 44px rgba(155, 77, 255, 0.55), 0 0 80px rgba(155,77,255,0.20); }
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            margin: 14px 0 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .section-title i {
+            background: linear-gradient(90deg, #9b4dff, #b87aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 12px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .feature-grid .feature-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(155, 77, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 6px;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-grid .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 60%, rgba(155, 77, 255, 0.03));
+            pointer-events: none;
+        }
+        .feature-grid .feature-item:hover {
+            border-color: rgba(155, 77, 255, 0.20);
+            background: rgba(155, 77, 255, 0.05);
+            box-shadow: 0 0 30px rgba(155, 77, 255, 0.05);
+        }
+        .feature-grid .feature-icon {
+            font-size: 18px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+            background: rgba(155, 77, 255, 0.08);
+            border: 1px solid rgba(155, 77, 255, 0.08);
+        }
+        .feature-grid .feature-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .feature-grid .feature-name {
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .feature-grid .feature-desc {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 7px;
+            margin-top: 1px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .feature-grid .toggle {
+            width: 36px;
+            height: 18px;
+            border-radius: 100px;
+            flex-shrink: 0;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            transition: background 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s, box-shadow 0.4s;
+        }
+        .feature-grid .toggle .thumb {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3a3a3a;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .feature-grid .toggle.on {
+            background: linear-gradient(135deg, #7b2fbe, #9b4dff);
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(155, 77, 255, 0.30), 0 0 40px rgba(155,77,255,0.10);
+        }
+        .feature-grid .toggle.on .thumb {
+            left: 20px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(155, 77, 255, 0.20);
+        }
+        .feature-grid .toggle:active .thumb { transform: scale(0.75); transition: transform 0.15s; }
+        .feature-grid .toggle.on:active .thumb { transform: scale(0.75); }
+        .feature-grid .toggle:hover { border-color: rgba(155, 77, 255, 0.2); }
+        .feature-grid .toggle.on:hover { border-color: rgba(155, 77, 255, 0.4); box-shadow: 0 0 30px rgba(155, 77, 255, 0.35), 0 0 50px rgba(155,77,255,0.15); }
+
+        .feature-full {
+            grid-column: 1 / -1;
+        }
+        .feature-full .feature-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(155, 77, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-full .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 60%, rgba(155, 77, 255, 0.03));
+            pointer-events: none;
+        }
+        .feature-full .feature-item:hover {
+            border-color: rgba(155, 77, 255, 0.20);
+            background: rgba(155, 77, 255, 0.05);
+            box-shadow: 0 0 30px rgba(155, 77, 255, 0.05);
+        }
+        .feature-full .feature-icon {
+            font-size: 16px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            flex-shrink: 0;
+            background: rgba(155, 77, 255, 0.08);
+            border: 1px solid rgba(155, 77, 255, 0.08);
+        }
+        .feature-full .feature-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .feature-full .feature-name {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .feature-full .feature-desc {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 8px;
+            margin-top: 1px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .feature-full .toggle {
+            width: 38px;
+            height: 20px;
+            border-radius: 100px;
+            flex-shrink: 0;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            transition: background 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s, box-shadow 0.4s;
+        }
+        .feature-full .toggle .thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #3a3a3a;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .feature-full .toggle.on {
+            background: linear-gradient(135deg, #7b2fbe, #9b4dff);
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(155, 77, 255, 0.30), 0 0 40px rgba(155,77,255,0.10);
+        }
+        .feature-full .toggle.on .thumb {
+            left: 20px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(155, 77, 255, 0.20);
+        }
+        .feature-full .toggle:active .thumb { transform: scale(0.75); transition: transform 0.15s; }
+        .feature-full .toggle.on:active .thumb { transform: scale(0.75); }
+        .feature-full .toggle:hover { border-color: rgba(155, 77, 255, 0.2); }
+        .feature-full .toggle.on:hover { border-color: rgba(155, 77, 255, 0.4); box-shadow: 0 0 30px rgba(155, 77, 255, 0.35), 0 0 50px rgba(155,77,255,0.15); }
+
+        .speed-slider-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .speed-slider-row.active {
+            opacity: 1;
+        }
+        .speed-slider-row label {
+            color: #b87aff;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 50px;
+        }
+        .speed-slider-row input[type=range] {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+        .speed-slider-row input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9b4dff, #7b2fbe);
+            cursor: pointer;
+            border: 2px solid rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(155,77,255,0.30), 0 0 40px rgba(155,77,255,0.10);
+        }
+        .speed-slider-row input[type=range]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9b4dff, #7b2fbe);
+            cursor: pointer;
+            border: 2px solid rgba(0,0,0,0.3);
+        }
+        .speed-value {
+            color: #b87aff;
+            font-size: 13px;
+            font-weight: 700;
+            min-width: 35px;
+            text-align: right;
+            font-family: 'Orbitron', monospace;
+            text-shadow: 0 0 10px rgba(155,77,255,0.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+        }
+        .social-link {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .social-link:hover { transform: translateY(-2px); }
+        .social-link:active { transform: scale(0.98); }
+        .social-link i { font-size: 14px; }
+        .social-link.telegram { background: linear-gradient(135deg, #0088cc, #0099ff); box-shadow: 0 4px 16px rgba(0, 136, 204, 0.25); }
+        .social-link.telegram:hover { box-shadow: 0 6px 24px rgba(0, 136, 204, 0.40); }
+        .social-link.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25); }
+        .social-link.whatsapp:hover { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.40); }
+
+        .footer {
+            text-align: center;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(155, 77, 255, 0.06);
+        }
+        .footer-text {
+            color: rgba(255, 255, 255, 0.08);
+            font-size: 8px;
+            letter-spacing: 2.5px;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(8, 0, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(155, 77, 255, 0.20);
+            border-radius: 12px;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(155,77,255,0.05);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 0.68, 0.35, 1);
+            z-index: 999;
+            max-width: 90%;
+            white-space: nowrap;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* AUDIO CONTROLLER - Dashboard Version */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(8,0,26,0.90);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(155,77,255,0.5);
+            border-radius: 50px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 40px rgba(155,77,255,0.20), inset 0 0 20px rgba(155,77,255,0.05);
+        }
+        .audio-control:hover {
+            transform: scale(1.05);
+            border-color: rgba(155,77,255,0.8);
+            box-shadow: 0 0 60px rgba(155,77,255,0.40), inset 0 0 30px rgba(155,77,255,0.08);
+        }
+        .audio-icon {
+            font-size: 20px;
+            color: #9b4dff;
+            transition: color 0.3s;
+        }
+        .audio-text {
+            color: #b87aff;
+            font-size: 10px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        .audio-bar-container {
+            width: 50px;
+            height: 4px;
+            background: rgba(155,77,255,0.15);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .audio-bar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #9b4dff, #7b2fbe, #b87aff);
+            border-radius: 4px;
+            animation: musicBarAnim 0.8s ease-in-out infinite;
+            transform-origin: left;
+        }
+        @keyframes musicBarAnim {
+            0% { transform: scaleX(0.2); }
+            50% { transform: scaleX(1); }
+            100% { transform: scaleX(0.2); }
+        }
+        .audio-control.playing .audio-icon {
+            color: #b87aff;
+            text-shadow: 0 0 20px rgba(155,77,255,0.5);
+        }
+        .audio-control.playing .audio-text {
+            color: #d4bfff;
+        }
+        .audio-control.playing .audio-bar {
+            background: linear-gradient(90deg, #9b4dff, #b87aff, #9b4dff);
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+
+    <!-- AUDIO PLAYER -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="/audio/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- AUDIO CONTROLLER -->
+    <div class="audio-control" id="audioControl" onclick="toggleAudio()">
+        <i class="fas fa-music audio-icon" id="audioIcon"></i>
+        <span class="audio-text" id="audioLabel">PLAY</span>
+        <div class="audio-bar-container">
+            <div class="audio-bar" id="audioBar"></div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="header">
+            <div class="brand">
+                <div class="brand-icon"><i class="fas fa-fire"></i></div>
+                <div>
+                    <div class="brand-text">ZAIN H4X</div>
+                    <div class="brand-sub">💜 ZAIN H4X</div>
+                </div>
+            </div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                <span class="status-text">Live</span>
+            </div>
+        </div>
+
+        <div class="ip-bar">
+            <i class="fas fa-network-wired"></i>
+            <span class="ip" id="ipDisplay">Loading...</span>
+            <span class="ip-badge"><i class="fas fa-key" style="font-size:7px;"></i> Authorized</span>
+        </div>
+
+        <button class="activate-btn" id="proxyBtn" onclick="toggleProxy()">
+            <i class="fas fa-bolt"></i> ACTIVATE
+        </button>
+
+        <div class="section-title"><i class="fas fa-crosshairs"></i> Aim Assist</div>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#b87aff; border-color:rgba(184,122,255,0.15);"><i class="fas fa-skull"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">HS NECK</div>
+                    <div class="feature-desc">Headshot Priority</div>
+                </div>
+                <div class="toggle" id="sw_hs_neck" onclick="toggle('hs_neck', event)"><div class="thumb"></div></div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#9b4dff; border-color:rgba(155,77,255,0.15);"><i class="fas fa-bullseye"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">HS CHEST</div>
+                    <div class="feature-desc">Chest Lock</div>
+                </div>
+                <div class="toggle" id="sw_hs_chest" onclick="toggle('hs_chest', event)"><div class="thumb"></div></div>
+            </div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-shield-halved"></i> Protection</div>
+        <div class="feature-full">
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#b87aff; border-color:rgba(184,122,255,0.15);"><i class="fas fa-shield-halved"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">BYPASS</div>
+                    <div class="feature-desc">Bypass Engine</div>
+                </div>
+                <div class="toggle" id="sw_bypass_v1" onclick="toggle('bypass_v1', event)"><div class="thumb"></div></div>
+            </div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-sliders"></i> Configuration</div>
+        <div class="feature-full">
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#d4bfff; border-color:rgba(212,191,255,0.15);"><i class="fas fa-rocket"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">BACKJUMP</div>
+                    <div class="feature-desc">Jump Enhance</div>
+                </div>
+                <div class="toggle" id="sw_backjump_v1" onclick="toggle('backjump_v1', event)"><div class="thumb"></div></div>
+            </div>
+        </div>
+        <div class="feature-full">
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#9b4dff; border-color:rgba(155,77,255,0.15);"><i class="fas fa-gauge-high"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">HIGH SENSI</div>
+                    <div class="feature-desc">Max Sensitivity</div>
+                </div>
+                <div class="toggle" id="sw_high_sensi" onclick="toggle('high_sensi', event)"><div class="thumb"></div></div>
+            </div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-bolt"></i> Movement</div>
+        <div class="feature-full">
+            <div class="feature-item">
+                <div class="feature-icon" style="color:#9b4dff; border-color:rgba(155,77,255,0.15);"><i class="fas fa-bolt"></i></div>
+                <div class="feature-info">
+                    <div class="feature-name">SPEED HACK</div>
+                    <div class="feature-desc">Run & Dash Speed</div>
+                </div>
+                <div class="toggle" id="sw_speed_hack" onclick="toggle('speed_hack', event)"><div class="thumb"></div></div>
+            </div>
+        </div>
+        <div class="speed-slider-row" id="speedSliderRow">
+            <label>Speed</label>
+            <input type="range" id="speedSlider" min="1.0" max="6.0" step="0.1" value="3.0">
+            <span class="speed-value" id="speedDisplay">3.0</span>
+        </div>
+
+        <div class="social-links">
+            <a href="https://t.me/ZAINSENSI" target="_blank" class="social-link telegram">
+                <i class="fab fa-telegram-plane"></i> Telegram
+            </a>
+            <a href="https://whatsapp.com/channel/0029VagTGyuI1rcotBW2mn3p" target="_blank" class="social-link whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">ZAIN H4X · v3.0</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let proxyActive = false;
+        let isToggling = false;
+        let speedValue = 3.0;
+        let isAudioPlaying = false;
+        let audio = document.getElementById('bgAudio');
+
+        function toggleAudio() {
+            var icon = document.getElementById('audioIcon');
+            var label = document.getElementById('audioLabel');
+            var control = document.getElementById('audioControl');
+            
+            if (!isAudioPlaying) {
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    icon.className = 'fas fa-volume-up audio-icon';
+                    label.textContent = 'ON';
+                    control.classList.add('playing');
+                }).catch(e => {
+                    console.log('Audio play failed:', e);
+                });
+            } else {
+                audio.pause();
+                isAudioPlaying = false;
+                icon.className = 'fas fa-music audio-icon';
+                label.textContent = 'PLAY';
+                control.classList.remove('playing');
+            }
+        }
+
+        // AUTO-PLAY ON LOAD
+        document.addEventListener('DOMContentLoaded', function() {
+            audio.play().then(() => {
+                isAudioPlaying = true;
+                document.getElementById('audioIcon').className = 'fas fa-volume-up audio-icon';
+                document.getElementById('audioLabel').textContent = 'ON';
+                document.getElementById('audioControl').classList.add('playing');
+            }).catch(e => {
+                console.log('Auto-play blocked by browser. Click the music button to play.');
+            });
+        });
+
+        // Handle audio end to restart loop
+        audio.addEventListener('ended', function() {
+            audio.currentTime = 0;
+            audio.play();
+        });
+
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.className = 'toast show';
+            clearTimeout(t._h);
+            t._h = setTimeout(() => t.className = 'toast', 1800);
+        }
+
+        fetch('/api/ip/check').then(r=>r.json()).then(d=>{
+            document.getElementById('ipDisplay').textContent = d.ip;
+        });
+
+        fetch('/api/config').then(r=>r.json()).then(d=>{
+            const c = d.config;
+            const set = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.className = 'toggle' + (val ? ' on' : '');
+            };
+            set('sw_hs_neck', c.HS_NECK);
+            set('sw_hs_chest', c.HS_CHEST);
+            set('sw_bypass_v1', c.BYPASSV1);
+            set('sw_backjump_v1', c.BACKJUMPV1);
+            set('sw_high_sensi', c.HIGH_SENSI);
+            set('sw_speed_hack', c.SPEED_HACK || false);
+            if (c.SPEED_VALUE) {
+                speedValue = c.SPEED_VALUE;
+                document.getElementById('speedSlider').value = speedValue;
+                document.getElementById('speedDisplay').textContent = speedValue.toFixed(1);
+            }
+            updateSpeedRow();
+        });
+
+        function updateSpeedRow() {
+            const sw = document.getElementById('sw_speed_hack');
+            const row = document.getElementById('speedSliderRow');
+            if (sw && sw.classList.contains('on')) {
+                row.classList.add('active');
+            } else {
+                row.classList.remove('active');
+            }
+        }
+
+        document.getElementById('speedSlider').addEventListener('input', function() {
+            const val = parseFloat(this.value);
+            document.getElementById('speedDisplay').textContent = val.toFixed(1);
+            speedValue = val;
+        });
+
+        document.getElementById('speedSlider').addEventListener('change', function() {
+            const val = parseFloat(this.value);
+            fetch('/api/toggle', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({feature: 'speed_value', value: val})
+            }).then(r=>r.json()).then(d=>{
+                if(d.success) toast('Speed set to ' + val.toFixed(1));
+            });
+        });
+
+        function toggleProxy() {
+            proxyActive = !proxyActive;
+            const btn = document.getElementById('proxyBtn');
+            if(proxyActive) {
+                btn.innerHTML = '<i class="fas fa-circle" style="font-size:8px;"></i> ACTIVE';
+                btn.classList.add('active');
+                toast('Proxy activated');
+            } else {
+                btn.innerHTML = '<i class="fas fa-bolt"></i> ACTIVATE';
+                btn.classList.remove('active');
+                toast('Proxy deactivated');
+            }
+        }
+
+        function toggle(feature, event) {
+            if (isToggling) return;
+            const el = document.getElementById('sw_' + feature);
+            if (!el) return;
+            const on = el.classList.contains('on');
+            const val = !on;
+            el.classList.toggle('on', val);
+
+            if (feature === 'hs_neck' && val === true) {
+                const chestEl = document.getElementById('sw_hs_chest');
+                if (chestEl && chestEl.classList.contains('on')) {
+                    chestEl.classList.remove('on');
+                    fetch('/api/toggle', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({feature: 'hs_chest', value: false})
+                    });
+                }
+            } else if (feature === 'hs_chest' && val === true) {
+                const neckEl = document.getElementById('sw_hs_neck');
+                if (neckEl && neckEl.classList.contains('on')) {
+                    neckEl.classList.remove('on');
+                    fetch('/api/toggle', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({feature: 'hs_neck', value: false})
+                    });
+                }
+            }
+
+            if (feature === 'speed_hack') {
+                updateSpeedRow();
+                if (!val) {
+                    const slider = document.getElementById('speedSlider');
+                    fetch('/api/toggle', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({feature: 'speed_value', value: parseFloat(slider.value)})
+                    });
+                }
+            }
+
+            isToggling = true;
+            el.style.opacity = '0.6';
+            el.style.cursor = 'wait';
+
+            fetch('/api/toggle', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({feature, value: val})
+            })
+            .then(r => r.json())
+            .then(d => {
+                if(d.success) {
+                    toast(feature.toUpperCase() + ' ' + (val ? 'ON' : 'OFF'));
+                } else {
+                    el.classList.toggle('on', !val);
+                    toast('Failed to toggle ' + feature, false);
+                }
+            })
+            .catch(() => {
+                el.classList.toggle('on', !val);
+                toast('Connection error', false);
+            })
+            .finally(() => {
+                isToggling = false;
+                el.style.opacity = '1';
+                el.style.cursor = 'pointer';
+            });
+        }
+    </script>
+</body>
+</html>
+  <footer>
+    <div class="credit">
+      <span style="color:#5a3a6d; font-size:10px;"><i class="fa-regular fa-copyright"></i> 2026</span>
+      <span class="footer-brand">ZAIN H4X</span>
+      <a href="https://t.me/ZAINSENSI" target="_blank" rel="noopener" style="color:#33aaff; font-size:11px;">
+        <i class="fa-brands fa-telegram"></i> @ZAINSENSI
+      </a>
+      <a href="https://whatsapp.com/channel/0029VagTGyuI1rcotBW2mn3p" target="_blank" rel="noopener" style="color:#25D366; font-size:11px;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+    <div style="font-size:9px; color:#3a1a4d; letter-spacing:1px;">
+      <i class="fa-solid fa-fire-flame-curved"></i> FOR AUTHORIZED USE ONLY <i class="fa-solid fa-shield-halved"></i>
+    </div>
+  </footer>
+</div>
+
+<script>
+var isAudioPlaying = false;
+var audio = document.getElementById('bgAudio');
+
+function toggleAudio() {
+    var icon = document.getElementById('audioIcon');
+    var label = document.getElementById('audioLabel');
+    var control = document.getElementById('audioControl');
+    
+    if (!isAudioPlaying) {
+        audio.play().then(() => {
+            isAudioPlaying = true;
+            icon.className = 'fas fa-volume-up audio-icon';
+            label.textContent = 'ON';
+            control.classList.add('playing');
+        }).catch(e => {
+            console.log('Audio play failed:', e);
+        });
+    } else {
+        audio.pause();
+        isAudioPlaying = false;
+        icon.className = 'fas fa-music audio-icon';
+        label.textContent = 'PLAY';
+        control.classList.remove('playing');
+    }
+}
+
+// AUTO-PLAY ON LOAD
+document.addEventListener('DOMContentLoaded', function() {
+    audio.play().then(() => {
+        isAudioPlaying = true;
+        document.getElementById('audioIcon').className = 'fas fa-volume-up audio-icon';
+        document.getElementById('audioLabel').textContent = 'ON';
+        document.getElementById('audioControl').classList.add('playing');
+    }).catch(e => {
+        console.log('Auto-play blocked by browser. Click the music button to play.');
+    });
+});
+
+// Handle audio end to restart loop
+audio.addEventListener('ended', function() {
+    audio.currentTime = 0;
+    audio.play();
+});
+</script>
+</body>
+  </html>
